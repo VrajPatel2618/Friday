@@ -1,0 +1,48 @@
+# ─────────────────────────────────────────────────────────
+# FRIDAY AI Assistant — Python Dependencies
+# ─────────────────────────────────────────────────────────
+# Install all: pip install -r requirements.txt
+#
+# Platform notes:
+#   face_recognition requires dlib → install Visual C++ Build Tools on Windows
+#   pyaudio on Windows: SKIP — we use sounddevice instead (Python 3.14 compatible)
+#   pvporcupine: Get a free access key at https://console.picovoice.ai
+
+# ── Core AI ──────────────────────────────────────────────
+openai>=1.30.0           # OpenAI GPT API client
+requests>=2.31.0         # HTTP client (for Ollama + smart home)
+
+# ── Voice ────────────────────────────────────────────────
+SpeechRecognition>=3.10.0
+pyttsx3>=2.90
+sounddevice>=0.4.6       # Python 3.14-compatible audio (replaces PyAudio)
+# pyaudio>=0.2.14        # SKIP on Python 3.14 — use sounddevice above
+
+# ── Vision & Gesture ─────────────────────────────────────
+opencv-python>=4.9.0
+mediapipe>=0.10.0
+face_recognition>=1.3.0  # INSTALLED — dlib + cmake already set up
+
+# ── Gesture system control ───────────────────────────────
+pyautogui>=0.9.54
+numpy>=1.26.0
+
+# ── Wake Word (pvporcupine) ───────────────────────────────
+# Get a FREE access key at: https://console.picovoice.ai
+pvporcupine>=3.0.0       # Offline wake word ("Hey FRIDAY")
+pvrecorder>=1.2.0        # Low-level audio recorder for porcupine
+
+# ── Dashboard ─────────────────────────────────────────────
+psutil>=5.9.0            # CPU/RAM/disk stats for dashboard
+
+# ── Facial Emotion Detection ──────────────────────────────
+# Uses MediaPipe Face Mesh geometric analysis (already installed above).
+# DeepFace/TensorFlow NOT used — no Python 3.14 build available.
+# deepface>=0.0.87       # DO NOT USE — TensorFlow has no Python 3.14 wheel
+
+# ── Smart Home (optional) ─────────────────────────────────
+# paho-mqtt>=2.0.0       # MQTT broker client (if not using Home Assistant REST)
+
+# ── Optional: System volume control (Windows) ────────────
+# pycaw>=20230407          # Windows audio endpoint volume
+# comtypes>=1.4.0          # COM interop (required by pycaw)

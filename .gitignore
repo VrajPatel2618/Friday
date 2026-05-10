@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.task
+.env
+screenshots/
+friday_memory.json
+*.log
+.DS_Store
